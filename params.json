@@ -1,0 +1,6 @@
+{
+  "name": "GeoDash",
+  "tagline": "Geospatial Dashboard",
+  "body": "# \r\n\r\n# The Stack\r\n\r\n- [Gulp](https://github.com/geodashio/geodash.js)\r\n- [Less](http://lesscss.org/)\r\n- [AngularJS](https://angularjs.org/)\r\n- [Django](https://www.djangoproject.com/)\r\n\r\n# Repos\r\n\r\n- [geodash.github.io](https://github.com/geodashio/geodash.github.io)\r\n- [geodash.js](https://github.com/geodashio/geodash.js)\r\n- [geodash-framework-django](https://github.com/geodashio/geodash-framework-django)\r\n- [geodash-server](https://github.com/geodashio/geodash-server)\r\n- [geodash-devops](https://github.com/geodashio/geodash-devops)",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
