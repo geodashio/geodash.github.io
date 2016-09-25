@@ -1,0 +1,86 @@
+name: GeoDash
+title: GeooDash
+description: "Main website of GeoDash"
+future: True
+logo:
+#markdown: redcarpet
+timezone: America/New_York
+permalink: none
+# Local Dev
+#baseurl:
+#url: http://localhost:8000
+#destination: _site
+# GitHub Pages
+#baseurl:
+#url: http://geodash.github.io
+#destination: _site
+# Production
+baseurl:
+url: http://geodash.io
+destination: _site
+
+# Explicit excludes, including dotfiles to be safe
+exclude: [.DS_Store, .git, .gitignore, .vagrant, Gruntfile.js, Vagrantfile, package.json, node_modules, backups, _assets/img/src-images]
+
+# General
+edit: true
+code: "https://github.com/geodashio/geodash.github.io"
+branch: "gh-pages"
+disclaimer: ""
+privacy: ""
+copyright: ""
+
+# Analytics
+ga:
+  enabled: false
+  code: "UA-XXXX-1"
+
+# Twitter
+twittercard:
+  enabled: fase
+  site: "tbd"
+
+# Open Graph
+opengraph:
+  enabled: false
+
+# Debugging & Testing
+debug:
+  monolith: true
+
+# Dependencies Management
+deps:
+  angular:
+    version: "1.4.0-beta.4"
+  jquery:
+    version: "1.11.3"
+
+# Document & Media Storage
+storage:
+
+handles:
+  twitter:
+    class: fa fa-twitter
+    baseurl: https://twitter.com/
+  github:
+    class: fa fa-github
+    baseurl: https://github.com/
+
+# GeoDash
+geodash:
+  link:
+    inro: "https://medium.com/@pjdufour.dev/introducing-geodash-18f1d68bd6f5"
+  featured:
+    title: Introducing GeoDash
+    image: "/assets/img/GeoDash.png"
+    description: First Medium post explaining perspective behind GeoDash
+    link: "https://medium.com/@pjdufour.dev/introducing-geodash-18f1d68bd6f5"
+  contacts:
+    - name: Patrick Dufour
+      email: pjdufour.dev@gmail.com
+  sponsors: []
+  tech:
+    - id: core
+      title: Core Stack
+    - id: associated
+      title: Associated Components

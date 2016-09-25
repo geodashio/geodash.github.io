@@ -1,0 +1,60 @@
+<div id="footer-wrapper">
+	<section id="footer" class="container">
+		<div class="row">
+			<div class="8u" style="box-sizing: border-box;border-left: 10px solid transparent; border-right: 10px solid transparent;">
+				<section>
+					<header>
+						<h2>Highlights</h2>
+					</header>
+          <ul class="dates">
+					{% if site.categories.highlights %}
+					{% assign sorted_pages = (site.categories.highlights | sort: 'date') %}
+					{% for highlight in sorted_pages offset: 0 limit: 5 %}
+						<li>
+							<span class="date">{{ highlight.date | date: "%B"}} <strong>{{ highlight.date | date: "%d"}}</strong></span>
+							<h3><a href="{{ site.baseurl }}{{ highlight.link }}">{{ highlight.title }}</a></h3>
+							{{ highlight.excerpt }}
+						</li>
+					{% endfor %}
+					{% endif %}
+					</ul>
+				</section>
+        <div style="position:relative; ">
+        {% for sponsor in site.geodash.sponsors %}
+          <a href='{{ sponsor.link }}' style="margin-right:{% cycle '40', '440' %}px;margin-top: 0px;" target="blank">
+            <img style="width:280px;" src="{{ site.baseurl }}{{ sponsor.image }}" alt="{{ sponsor.alt }}" />
+          </a>
+        {% endfor %}
+        </div>
+        <div>
+        </div>
+        <div style="position:absolute;margin-top:40px;width:760px">
+        <h6 style="font-weight:200">GeoDash Disclaimer TBD</h6>
+        <p>
+        </div>
+      </div>
+			<div class="4u">
+				<section>
+					<header><h2>Featured Post: {{ site.geodash.featured.title }}</h2></header>
+					<a href="#" class="image featured"><img src="{{ site.baseurl }}{{ site.geodash.featured.image }}" alt="" /></a>
+					<p>{{ site.geodash.featured.description }}</p>
+					<footer>
+						<a href="{{ site.geodash.featured.link }}" class="button" target="_blank">Learn More</a>
+					</footer>
+				</section>
+				<section>
+					<header><h2>Contact Us</h2></header>
+					<ul class="contact">
+						<li>
+							<h3>E-Mail</h3>
+              {% for contact in site.geonode_summit_2016.contacts %}
+							<p>{{ contact.name }}<br><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+              {% endfor %}
+						</li>
+					</ul>
+					<h2><a href="https://docs.google.com/forms/d/e/1FAIpQLSdFdkHBVtbEEGMp2KuezujT7XZqr3Ig4JYyrHPskp9XGpeNEg/viewform" target="_blank">RSVP!</a></h2>
+				</section>
+			</div>
+		</div>
+	</section>
+</div>

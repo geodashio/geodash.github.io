@@ -1,120 +1,20 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="GeoDash : Geospatial Dashboard">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>GeoDash</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/geodashio/geodash.github.io">View on GitHub</a>
-
-          <h1 id="project_title">GeoDash</h1>
-          <h2 id="project_tagline">Geospatial Dashboard</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/geodashio/geodash.github.io/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/geodashio/geodash.github.io/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h2>
-<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h2>
-
-<p>GeoDash is a modern web framework and approach for quickly producing visualizations of geospatial data. The name comes from "geospatial dashboard". </p>
-
-<p>The framework is built to be extremely extensible.  You can use GeoDash server (an implementation), the front-end framework, backend code, or just the Gulp pipeline.  Have fun!</p>
-
-<h2>
-<a id="learn-more" class="anchor" href="#learn-more" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Learn More</h2>
-
-<p>Check out the following Medium post to learn more.</p>
-
-<p><a href="https://medium.com/@pjdufour.dev/introducing-geodash-18f1d68bd6f5">https://medium.com/@pjdufour.dev/introducing-geodash-18f1d68bd6f5</a></p>
-
-<h2>
-<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
-
-<p>Go to the demo at:</p>
-
-<p><a href="http://demo.geodash.io">http://demo.geodash.io</a>.</p>
-
-<h2>
-<a id="implementing-projects" class="anchor" href="#implementing-projects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementing Projects</h2>
-
-<h3>
-<a id="geodash-server" class="anchor" href="#geodash-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>GeoDash Server</h3>
-
-<p>GeoDash Server is an open source implementation of the GeoDash framework and associated approach.</p>
-
-<h3>
-<a id="sparc" class="anchor" href="#sparc" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SPARC</h3>
-
-<p><strong>SPARC</strong> is a Spatial Risk Calendar that combines data layers covering hazard exposure and population vulnerability to determine baseline probabilistic levels of humaitarian impact associated with particular hazard types, on a monthly basis, at a sub-national level, around the globe.</p>
-
-<p>SPARC is a digital service provided by the World Foood Programme (WFP), Emergency Preparedness and Support Response Division (OSE)</p>
-
-<p><a href="https://github.com/wfp-ose/sparc2.git">https://github.com/wfp-ose/sparc2.git</a></p>
-
-<h2>
-<a id="the-stack" class="anchor" href="#the-stack" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Stack</h2>
-
-<ul>
-<li><a href="https://github.com/geodashio/geodash.js">Gulp</a></li>
-<li><a href="http://lesscss.org/">Less</a></li>
-<li><a href="https://angularjs.org/">AngularJS</a></li>
-<li><a href="https://www.djangoproject.com/">Django</a></li>
-<li><a href="http://leafletjs.com/">Leaflet</a></li>
-</ul>
-
-<h2>
-<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
-
-<p>You can get started with <a href="https://github.com/geodashio/geodash-devops">geodash-devops</a>.</p>
-
-<p>We're happy to accept pull requests.  Please make pull requests against the relevant repo, as listed below.</p>
-
-<h2>
-<a id="repos" class="anchor" href="#repos" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repos</h2>
-
-<ul>
-<li>
-<a href="https://github.com/geodashio/geodash.github.io">geodash.github.io</a> : This website</li>
-<li>
-<a href="https://github.com/geodashio/geodash-base">geodash-base</a> : The core front-end framework code</li>
-<li>
-<a href="https://github.com/geodashio/geodash-framework-django">geodash-framework-django</a> : Back-end Django code.  Used by multiple django projects, but doesn't do a lot.</li>
-<li>
-<a href="https://github.com/geodashio/geodash-server">geodash-server</a> : Implementation of GeoDash.  Demo at <a href="http://demo.geodash.io/dashboard/test">http://demo.geodash.io/dashboard/test</a>
-</li>
-<li>
-<a href="https://github.com/geodashio/geodash-devops">geodash-devops</a> : DevOps tools for developing GeoDash.</li>
-</ul>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">GeoDash maintained by <a href="https://github.com/geodashio">geodashio</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
-</html>
+---
+title: GeoDash
+layout: base
+---
+<body class="homepage">
+{% include header_landing.html %}
+<div id="main-wrapper">
+	<div class="container">
+		<div class="row" id="projects">
+			<div class="12u">
+					<section>
+						<header class="major" >
+							<h2>Workshops</h2>
+						</header>
+						{% include landing/workshops.html %}
+					</section>
+			</div>
+		</div>
+	</div>
+</div>
