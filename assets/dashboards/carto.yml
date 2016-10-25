@@ -5,8 +5,8 @@ view:
   baselayer: osm
   featurelayers:
     - Syria_CulturalSites_2013May22_HIU_USDoS
-  latitude: 18.7360
-  longitude: -72.4178
+  latitude: 35.275
+  longitude: 38.598
   maxZoom: 18
   minZoom: 0
   zoom: 7
@@ -38,7 +38,7 @@ featurelayers:
       attribution: "State GeoNode"
       site: "State GeoNode"
     geojson:
-      url: "http://geonode.state.gov/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature"
+      url: "http://geonode.state.gov/cors/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature"
     carto:
       styles:
         - id: default
