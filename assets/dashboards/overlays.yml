@@ -4,19 +4,21 @@ title: Overlays Example
 view:
   baselayer: osm
   featurelayers:
-    - airports
+    - wld_trs_airports_wfp
+    - wld_trs_supplyroutes_wfp
   latitude: 4.8475
   longitude: 31.5953
   maxZoom: 18
   minZoom: 0
-  zoom: 14
+  zoom: 7
   controls: []
 controls:
   attribution: false
   legend: false
   zoom: false
 renderlayers:
-  - airports
+  - wld_trs_airports_wfp
+  - wld_trs_supplyroutes_wfp
   - osm
 baselayers:
   - id: osm
@@ -40,6 +42,26 @@ featurelayers:
     wms:
       version: "1.1.1"
       layers: ["geonode:wld_trs_airports_wfp"]
+      styles: []
+      format: 'image/png'
+      transparent: true
+      buffer: 256
+      url: "http://geonode.wfp.org/cors/geoserver/geonode/wms"
+    wfs:
+      version: "1.0.0"  # Needs to 1.0.0 or returns bad results for some reason.
+      url: "http://geonode.wfp.org/cors/geoserver/wfs"
+      geometry: shape
+  - id: wld_trs_supplyroutes_wfp
+    type: WMS
+    title: "Global Supply Routes"
+    description: "Global supply routes for Transportation of Food and Non Food Items - Roads, Railways, Waterway, Airways.\n\nThis layer is built by linking origin/destination locations using the most direct route on main roads. In reality, the supply routes can divert from the ones displayed here depending on many local factors. The routes shown in this dataset are only indicative and have to be used as such."
+    source:
+      name: "WFP"
+      attribution: "WFP GeoNode"
+      site: "WFP GeoNode"
+    wms:
+      version: "1.1.1"
+      layers: ["geonode:wld_trs_supplyroutes_wfp"]
       styles: []
       format: 'image/png'
       transparent: true
@@ -158,6 +180,29 @@ overlays:
       properties:
         - { name: layer, value: wld_trs_airports_wfp }
     tooltip: { placement: right, content: "Toggle Airports Layer" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 20px }
+  - id: toggle_supply_routes
+    type: text
+    title: "Toggle Suply Routes Layer"
+    position:
+      top: calc(1rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px)
+      left: 8px
+      bottom: auto
+      right: auto
+    text:
+      content: ""
+      font: { family: FontAwesome, size: 2rem }
+    intent:
+      name: toggleFeatureLayer
+      properties:
+        - { name: layer, value: wld_trs_supplyroutes_wfp }
+    tooltip: { placement: right, content: "Toggle Supply Routes" }
     css:
       properties:
         - { name: padding, value: 8px }
