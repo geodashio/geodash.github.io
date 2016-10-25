@@ -1,13 +1,13 @@
 ---
 {% raw %}
-title: Overlays Example
+title: Popups Example
 view:
   baselayer: osm
   featurelayers:
-    - wld_trs_airports_wfp
+    - wld_poi_warehouses_wfp
     - wld_trs_supplyroutes_wfp
-  latitude: 4.8475
-  longitude: 31.5953
+  latitude: 18.7360
+  longitude: -72.4178
   maxZoom: 18
   minZoom: 0
   zoom: 7
@@ -17,7 +17,7 @@ controls:
   legend: false
   zoom: false
 renderlayers:
-  - wld_trs_airports_wfp
+  - wld_poi_warehouses_wfp
   - wld_trs_supplyroutes_wfp
   - osm
 baselayers:
@@ -31,17 +31,17 @@ baselayers:
         url: https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png
       type: tiles
 featurelayers:
-  - id: wld_trs_airports_wfp
+  - id: wld_poi_warehouses_wfp
     type: WMS
-    title: "Global Airports"
-    description: "This layer contains airports locations. This dataset brings together various public sources such as OpenStreetMap or ourairports.com with WFP logistics information. It is updated regularly with inputs from WFP aviation unit but also from many partners through the Logistics Cluster and the Logistics Capacity Assessment (LCA: dlca.logcluster.org). The information is compiled at a global level."
+    title: "Global WFP Warehouses"
+    description: "This layer contains locations and additional information of WFP warehouses worldwide."
     source:
       name: "WFP"
       attribution: "WFP GeoNode"
       site: "WFP GeoNode"
     wms:
       version: "1.1.1"
-      layers: ["geonode:wld_trs_airports_wfp"]
+      layers: ["geonode:wld_poi_warehouses_wfp"]
       styles: []
       format: 'image/png'
       transparent: true
@@ -51,6 +51,29 @@ featurelayers:
       version: "1.0.0"  # Needs to 1.0.0 or returns bad results for some reason.
       url: "http://geonode.wfp.org/cors/geoserver/wfs"
       geometry: shape
+    popup:
+      title: "WFP Warehouse: {{ feature.attributes.whlocation }}"
+      panes:
+        - id: popup_overview
+          tab: {label: Overview }
+          fields:
+            - { "label": "Location", "value": "{{ feature.attributes.whlocation }}" }
+            - { "label": "Owner", "value": "{{ feature.attributes.ownerorg }}" }
+            - { "label": "Status", "value": "{{ feature.attributes.status }}" }
+            - { "label": "Location Precision", "value": "{{ feature.attributes.locprecision }}" }
+        - id: "popup_links"
+          tab: { label: "Links" }
+          fields:
+            - { type: link, label: "WFP GeoNode", value: Home, url: "http://geonode.wfp.org/" }
+            - { type: link, label: "WFP GeoNode", value: "{{ layer.title }}", url: "http://geonode.wfp.org/layers/geonode:wld_poi_warehouses_wfp" }
+            - type: link
+              label: "Logistics Cluster:"
+              value: "Hurricane Matthew"
+              url: "http://www.logcluster.org/sector/hurrimat16"
+            - value: "{{ feature.geometry.lat | number : 4 }}, {{ feature.geometry.lng | number : 4 }}"
+              type: link
+              label: "OpenStreetMap"
+              url: "https://www.openstreetmap.org/#map=15/{{ feature.geometry.lat }}/{{ feature.geometry.lng }}"
   - id: wld_trs_supplyroutes_wfp
     type: WMS
     title: "Global Supply Routes"
@@ -143,73 +166,6 @@ overlays:
         - { name: border, value: "2px solid #0374e6" }
         - { name: border-radius, value: "0px 0px 8px 8px" }
         - { name: line-height, value: 2rem }
-  - id: reset_extent
-    type: text
-    title: "Reset Extent"
-    position: { top: calc(1rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
-    text:
-      content: ""
-      font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: zoomToLocation
-      properties:
-        - { name: lat, value: 4.8475 }
-        - { name: lon, value: 31.5953 }
-        - { name: zoom, value: 14 }
-    tooltip: { placement: right, content: "Reset Extent" }
-    css:
-      properties:
-        - { name: padding, value: 8px }
-        - { name: background, value: "rgba(0,0,0, 0.4)" }
-        - { name: border, value: "2px solid #0374e6" }
-        - { name: border-radius, value: 8px }
-        - { name: line-height, value: 20px }
-  - id: toggle_airports
-    type: text
-    title: "Toggle Airports Layer"
-    position:
-      top: calc(1rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px)
-      left: 8px
-      bottom: auto
-      right: auto
-    text:
-      content: ""
-      font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: toggleFeatureLayer
-      properties:
-        - { name: layer, value: wld_trs_airports_wfp }
-    tooltip: { placement: right, content: "Toggle Airports Layer" }
-    css:
-      properties:
-        - { name: padding, value: 8px }
-        - { name: background, value: "rgba(0,0,0, 0.4)" }
-        - { name: border, value: "2px solid #0374e6" }
-        - { name: border-radius, value: 8px }
-        - { name: line-height, value: 20px }
-  - id: toggle_supply_routes
-    type: text
-    title: "Toggle Suply Routes Layer"
-    position:
-      top: calc(1rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px + 0.5rem + 10px + 2rem + 10px)
-      left: 8px
-      bottom: auto
-      right: auto
-    text:
-      content: ""
-      font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: toggleFeatureLayer
-      properties:
-        - { name: layer, value: wld_trs_supplyroutes_wfp }
-    tooltip: { placement: right, content: "Toggle Supply Routes" }
-    css:
-      properties:
-        - { name: padding, value: 8px }
-        - { name: background, value: "rgba(0,0,0, 0.4)" }
-        - { name: border, value: "2px solid #0374e6" }
-        - { name: border-radius, value: 8px }
-        - { name: line-height, value: 20px }
   - id: popout
     type: text
     title: "Popout"
@@ -219,23 +175,6 @@ overlays:
       font: { family: FontAwesome, size: 2rem }
     link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/overlays.yml", target: "_blank" }
     tooltip: { placement: left, content: "Popout" }
-    css:
-      properties:
-        - { name: padding, value: 8px }
-        - { name: background, value: "rgba(0,0,0, 0.4)" }
-        - { name: border, value: "2px solid #0374e6" }
-        - { name: border-radius, value: 8px }
-        - { name: line-height, value: 2rem }
-  - id: print_map
-    type: text
-    title: "Print Map"
-    position: { top: calc(1rem + 10px + 2rem + 10px + 0.5rem), right: 1rem, bottom: auto, left: auto }
-    text:
-      content: ""
-      font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: printMap
-    tooltip: { placement: left, content: "Print Map" }
     css:
       properties:
         - { name: padding, value: 8px }
