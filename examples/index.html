@@ -15,8 +15,8 @@ layout: base
 						<div>
 							<h3 id="example-{{ g.id | slugify }}-{{ x.name | slugify }}">{{ x.name }}</h3>
 							{{ x.content }}
+              <a target="_blank" href="{{ x.url }}">View</a>
 							<div class="handles">
-                {% if x.website %}<div class="handle"><i class="fa fa-external-link"></i><a target="_blank" href="{{ x.website }}">{{ x.website }}</a></div>{% endif %}
                 {% for handle in x.handles %}
                 <div class="handle"><i class="{{ site.handles[handle.type].class }}"></i><a target="_blank" href="{{ site.handles[handle.type].baseurl }}{{ handle.name }}">{{ handle.name }}</a></div>
                 {% endfor %}
