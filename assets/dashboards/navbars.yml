@@ -126,6 +126,7 @@ navbars:
           - { name: lat, value: "{{ tab.lat }}" }
           - { name: lon, value: "{{ tab.lon }}" }
           - { name: zoom, value: "{{ tab.zoom }}" }
+          - { name: projection, value: "{{ tab.projection }}" }
     switch: "state.city"
     tabs:
       - title: Juba
