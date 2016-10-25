@@ -1,0 +1,10 @@
+page: dashboard
+slug: "quickstart"
+view:
+  baselayer: osm
+  featurelayers:
+    - roads
+    - buildings
+  lat: 0
+  lon: 0
+  z: 0

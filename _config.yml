@@ -69,7 +69,7 @@ handles:
 # GeoDash
 geodash:
   link:
-    inro: "https://medium.com/@pjdufour.dev/introducing-geodash-18f1d68bd6f5"
+    intro: "https://medium.com/@pjdufour.dev/introducing-geodash-18f1d68bd6f5"
   featured:
     title: Introducing GeoDash
     image: "/assets/img/GeoDash.png"
@@ -82,5 +82,12 @@ geodash:
   tech:
     - id: core
       title: Core Stack
+    - id: plugins
+      title: GeoDash Plugins
+    - id: build
+      title: Build Pipeline
     - id: associated
       title: Associated Components
+  examples:
+    - id: simple
+      title: Simple

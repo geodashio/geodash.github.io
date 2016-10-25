@@ -1,19 +1,19 @@
 ---
-title: GeoDash Stack
+title: GeoDash Examples
 layout: base
 ---
 <body class="left-sidebar">
   {% include nav.html %}
 	<div id="main-wrapper">
 	  <div class="container">
-      {% for g in site.geodash.tech %}
-      <div><header class="major"><h2 id="tech-{{ g.id | slugify }}">{{ g.title }}</h2></header></div>
+      {% for g in site.geodash.examples %}
+      <div><header class="major"><h2 id="example-{{ g.id | slugify }}">{{ g.title }}</h2></header></div>
 		  <div class="row speakers">
-        {% for x in site.categories.tech reversed %}{% if x.group == g.id %}
+        {% for x in site.categories.examples reversed %}{% if x.group == g.id %}
 			  <div class="3u speaker">
 					<section class="box">
 						<div>
-							<h3 id="tech-{{ g.id | slugify }}-{{ x.name | slugify }}">{{ x.name }}</h3>
+							<h3 id="example-{{ g.id | slugify }}-{{ x.name | slugify }}">{{ x.name }}</h3>
 							{{ x.content }}
 							<div class="handles">
                 {% if x.website %}<div class="handle"><i class="fa fa-external-link"></i><a target="_blank" href="{{ x.website }}">{{ x.website }}</a></div>{% endif %}

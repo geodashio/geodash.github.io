@@ -1,0 +1,8 @@
+<li>
+  <a href="{{ site.baseurl }}/examples">Examples</a>
+  <ul>
+    {% for example in site.categories.examples reversed %}
+    <li><a href="{{ site.baseurl }}{{ example.url }}">{{ example.title }}</a></li>
+    {% endfor %}
+  </ul>
+</li>
