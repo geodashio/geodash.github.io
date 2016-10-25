@@ -57,10 +57,10 @@ featurelayers:
         - id: popup_overview
           tab: {label: Overview }
           fields:
-            - { "label": "Location", "value": "{{ feature.attributes.whlocation }}" }
-            - { "label": "Owner", "value": "{{ feature.attributes.ownerorg }}" }
-            - { "label": "Status", "value": "{{ feature.attributes.status }}" }
-            - { "label": "Location Precision", "value": "{{ feature.attributes.locprecision }}" }
+            - { "attribute": whlocation, "label": "Location", "value": "{{ feature.attributes.whlocation }}" }
+            - { "attribute": owner, "label": "Owner", "value": "{{ feature.attributes.ownerorg }}" }
+            - { "attribute": status, "label": "Status", "value": "{{ feature.attributes.status }}" }
+            - { "attribute": locprecision, "label": "Location Precision", "value": "{{ feature.attributes.locprecision }}" }
         - id: "popup_links"
           tab: { label: "Links" }
           fields:
@@ -173,7 +173,7 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/overlays.yml", target: "_blank" }
+    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/popups.yml", target: "_blank" }
     tooltip: { placement: left, content: "Popout" }
     css:
       properties:
