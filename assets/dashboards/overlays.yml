@@ -44,7 +44,7 @@ featurelayers:
       format: 'image/png'
       transparent: true
       buffer: 256
-      url: "http://geonode.wfp.org/geoserver/geonode/wms"
+      url: "http://geonode.wfp.org/cors/geoserver/geonode/wms"
     wfs:
       version: "1.0.0"  # Needs to 1.0.0 or returns bad results for some reason.
       url: "http://geonode.wfp.org/cors/geoserver/wfs"
