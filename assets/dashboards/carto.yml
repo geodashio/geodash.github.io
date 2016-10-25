@@ -1,0 +1,146 @@
+---
+{% raw %}
+title: Carto Example
+view:
+  baselayer: osm
+  featurelayers:
+    - Syria_CulturalSites_2013May22_HIU_USDoS
+  latitude: 18.7360
+  longitude: -72.4178
+  maxZoom: 18
+  minZoom: 0
+  zoom: 7
+  controls: []
+controls:
+  attribution: false
+  legend: false
+  zoom: false
+renderlayers:
+  - Syria_CulturalSites_2013May22_HIU_USDoS
+  - osm
+baselayers:
+  - id: osm
+    title: OpenStreetMap
+    description: OpenStreetMap Basemap, Standard Style
+    source:
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      name: OpenStreetMap
+      tile:
+        url: https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png
+      type: tiles
+featurelayers:
+  - id: Syria_CulturalSites_2013May22_HIU_USDoS
+    type: GeoJSON
+    title: "Syria Cultural Sites"
+    description: "The Syria Cultural Sites dataset contains geographic location (point geometry), name, type, and area name of over 1000 cultural heritage sites and museums in Syria compiled by the Cultural Heritage Center, Bureau of Educational and Cultural Affairs, U.S. Department of State (http://eca.state.gov/cultural-heritage-center) as of Spring 2013. The sites are categorized by type, which include but not limited to, archaelogical sites, roman ruins, mosques, schools, churches, cemetaries, and towns. The data contained herein is entirely unclassified."
+    source:
+      name: "U.S. Department of State"
+      attribution: "State GeoNode"
+      site: "State GeoNode"
+    geojson:
+      url: "http://geonode.state.gov/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature"
+    carto:
+      styles:
+        - id: default
+          title: Default Style
+          description: Default Style
+          symbolizers:
+            - id: default
+              title: Default Symbolizer
+              description: Default Symbolizer
+              type: point
+              static:
+                properties:
+                  fillColor: "#AA0000"
+                  fillOpacity: 0.6
+                  strokeWidth: 1.0
+                  strokeColor: "#330000"
+overlays:
+  - id: attribution
+    type: text
+    position:
+      bottom: 8px
+      right: 8px
+    text:
+      content: "&copy; [OpenStreetMap](http://www.openstreetmap.org/copyright)"
+      font: { style: normal, family: Verdana, size: 1.2rem }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0, 0, 0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 1.2rem }
+        - { name: color, value: white }
+  - id: powered_by_geodash
+    type: text
+    position:
+      bottom: 8px
+      left: 8px
+    text:
+      content: "Powered by GeoDash"
+      font: { style: normal, family: Verdana, size: 1.2rem }
+    link: { url: "http://geodash.io", target: "_blank" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0, 0, 0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 1.2rem }
+        - { name: color, value: white }
+  - id: zoom_in
+    type: text
+    title: "Zoom In"
+    position: { top: 8px, left: 8px, bottom: auto, right: auto }
+    text:
+      content: ""
+      font:
+        family: FontAwesome
+        size: 2rem
+    intent:
+      name: zoomIn
+    tooltip: { placement: right, content: "Zoom In" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: "8px 8px 0px 0px" }
+        - { name: line-height, value: 2rem }
+  - id: zoom_out
+    type: text
+    title: "Zoom Out"
+    position: { top: calc(1rem + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
+    text:
+      content: ""
+      font:
+        family: FontAwesome
+        size: 2rem
+    intent:
+      name: zoomOut
+    tooltip: { placement: right, content: "Zoom Out" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: "0px 0px 8px 8px" }
+        - { name: line-height, value: 2rem }
+  - id: popout
+    type: text
+    title: "Popout"
+    position: { top: 1rem, left: auto, bottom: auto, right: 1rem }
+    text:
+      content: ""
+      font: { family: FontAwesome, size: 2rem }
+    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/carto.yml", target: "_blank" }
+    tooltip: { placement: left, content: "Popout" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 2rem }
+{% endraw %}
