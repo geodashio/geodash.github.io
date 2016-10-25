@@ -210,15 +210,15 @@ overlays:
         - { name: border, value: "2px solid #0374e6" }
         - { name: border-radius, value: 8px }
         - { name: line-height, value: 20px }
-  - id: toggle_fullscreen
+  - id: popout
     type: text
-    title: "Toggle Full Screen"
+    title: "Popout"
     position: { top: 1rem, left: auto, bottom: auto, right: 1rem }
     text:
-      content: ""
+      content: ""
       font: { family: FontAwesome, size: 2rem }
-    intent: { name: toggleFullScreen }
-    tooltip: { placement: left, content: "Toggle Full Screen" }
+    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/overlays.yml", target: "_blank" }
+    tooltip: { placement: left, content: "Popout" }
     css:
       properties:
         - { name: padding, value: 8px }
