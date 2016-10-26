@@ -30,7 +30,7 @@ baselayers:
       type: tiles
 featurelayers:
   - id: roads
-    type: vectortile
+    type: mapzen
     title: "Roads"
     description: "Roads from Mapzen vector tile service"
     source: { name: "Mapzen", attribution: "Mapzen" }
