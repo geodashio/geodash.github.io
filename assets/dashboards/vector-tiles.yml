@@ -10,7 +10,7 @@ view:
   longitude: 31.5953
   zoom: 14
   minZoom: 0
-  maxZoom: 18
+  maxZoom: 15
   controls: []
 controls:
   attribution: false
@@ -29,7 +29,9 @@ baselayers:
       attribution: '&copy; <a href="https://mapbox.com">MapBox</a>'
       name: "World Blank Light"
     mapbox:
-      layers: ["mapbox.world-blank-light"]
+      #https://api.mapbox.com/styles/v1/patrickd/ciur3uqi000ts2jl8m5k4kb8z/tiles/256/{z}/{x}/{y}
+      #layers: ["mapbox.world-blank-light"]
+      style: ["ciur3uqi000ts2jl8m5k4kb8z"]
       access_token: "pk.eyJ1IjoicGF0cmlja2QiLCJhIjoiY2l1cXh6MzVwMDAweDJvcG81M3R2Z3QzOCJ9.sTduWVXMlsS7IucYPb9Sig"
 featurelayers:
   - id: roads
@@ -37,6 +39,7 @@ featurelayers:
     title: "Roads"
     description: "Roads from Mapzen vector tile service"
     source: { name: "Mapzen", attribution: "Mapzen" }
+    maxZoom: 15
     mapzen:
       version: "v1"
       layers: ["roads"]
@@ -47,6 +50,7 @@ featurelayers:
         - id: default
           title: Default Style
           description: Default Style
+          cache: true
           symbolizers:
             - id: default
               title: Default Symbolizer
@@ -61,6 +65,7 @@ featurelayers:
     title: "Buildings"
     description: "Buildings from Mapzen vector tile service"
     source: { name: "Mapzen", attribution: "Mapzen" }
+    maxZoom: 15
     mapzen:
       version: "v1"
       layers: ["buildings"]
@@ -71,6 +76,7 @@ featurelayers:
         - id: default
           title: Default Style
           description: Default Style
+          cache: true
           symbolizers:
             - id: inner
               title: Inner Symbolizer
