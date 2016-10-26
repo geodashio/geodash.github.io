@@ -36,7 +36,7 @@ featurelayers:
     source: { name: "Mapzen", attribution: "Mapzen" }
     mapzen:
       version: "v1"
-      layers: "roads"
+      layers: ["roads"]
       format: "mvt"
       api_key: "mapzen-KthQho3"
     carto:
