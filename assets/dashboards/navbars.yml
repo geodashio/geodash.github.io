@@ -121,7 +121,7 @@ navbars:
     intents:
       - name: stateChanged
         properties: [{ name: city, value: "{{ tab.value }}" }]
-      - name: zoomToLocation
+      - name: flyToLocation
         properties:
           - { name: lat, value: "{{ tab.lat }}" }
           - { name: lon, value: "{{ tab.lon }}" }
