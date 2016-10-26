@@ -22,14 +22,15 @@ renderlayers:
   - world_blank_light
 baselayers:
   - id: world_blank_light
+    type: mapbox
     title: World Blank Light
-    description: OpenStreetMap Basemap, Standard Style
+    description: MapBox World Blank Light
     source:
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: '&copy; <a href="https://mapbox.com">MapBox</a>'
       name: "World Blank Light"
-      tile:
-        url: https://{a-c}.tiles.mapbox.com/v3/mapbox.world-blank-light/{z}/{x}/{y}.png
-      type: tiles
+    mapbox:
+      layers: ["mapbox.world-blank-light"]
+      access_token: "pk.eyJ1IjoicGF0cmlja2QiLCJhIjoiY2l1cXh6MzVwMDAweDJvcG81M3R2Z3QzOCJ9.sTduWVXMlsS7IucYPb9Sig"
 featurelayers:
   - id: roads
     type: mapzen
