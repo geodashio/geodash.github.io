@@ -2,8 +2,9 @@
 {% raw %}
 title: Vector Tiles Example
 view:
-  baselayer: osm
+  baselayer: world_blank_light
   featurelayers:
+    - buildings
     - roads
   latitude: 11.8360
   longitude: 13.1725
@@ -16,17 +17,18 @@ controls:
   legend: false
   zoom: false
 renderlayers:
+  - buildings
   - roads
-  - osm
+  - world_blank_light
 baselayers:
-  - id: osm
-    title: OpenStreetMap
+  - id: world_blank_light
+    title: World Blank Light
     description: OpenStreetMap Basemap, Standard Style
     source:
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      name: OpenStreetMap
+      name: "World Blank Light"
       tile:
-        url: https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png
+        url: https://{a-c}.tiles.mapbox.com/v3/mapbox.world-blank-light/{z}/{x}/{y}.png
       type: tiles
 featurelayers:
   - id: roads
@@ -45,22 +47,39 @@ featurelayers:
           title: Default Style
           description: Default Style
           symbolizers:
-            - id: outer
-              title: Outer Symbolizer
-              description: Outer Symbolizer
+            - id: default
+              title: Default Symbolizer
+              description: Default Symbolizer
               type: line
               static:
                 properties:
-                  strokeColor: "#333333"
-                  strokeWidth: 1.5
+                  strokeWidth: 1.2
+                  strokeColor: "#AA3333"
+  - id: buildings
+    type: mapzen
+    title: "Buildings"
+    description: "Buildings from Mapzen vector tile service"
+    source: { name: "Mapzen", attribution: "Mapzen" }
+    mapzen:
+      version: "v1"
+      layers: ["buildings"]
+      format: "mvt"
+      api_key: "mapzen-KthQho3"
+    carto:
+      styles:
+        - id: default
+          title: Default Style
+          description: Default Style
+          symbolizers:
             - id: inner
               title: Inner Symbolizer
               description: Inner Symbolizer
-              type: line
+              type: polygon
               static:
                 properties:
-                  strokeWidth: 1.0
-                  strokeColor: "#330000"
+                  strokeWidth: 2.0
+                  strokeColor: "#708090"
+                  fillColor: "#F5DEB3"
 overlays:
   - id: attribution
     type: text
