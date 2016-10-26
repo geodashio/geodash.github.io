@@ -140,7 +140,7 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/carto.yml", target: "_blank" }
+    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/vector-tiles.yml", target: "_blank" }
     tooltip: { placement: left, content: "Popout" }
     css:
       properties:
