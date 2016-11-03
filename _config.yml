@@ -65,6 +65,9 @@ handles:
   github:
     class: fa fa-github
     baseurl: https://github.com/
+  npm:
+    class: fa fa-code
+    baseurl: https://www.npmjs.com/package/
 
 # GeoDash
 geodash:
@@ -86,8 +89,8 @@ geodash:
       title: GeoDash Plugins
     - id: build
       title: Build Pipeline
-    - id: associated
-      title: Associated Components
+    - id: shared
+      title: Shared Libraries
   examples:
     - id: simple
       title: Simple
