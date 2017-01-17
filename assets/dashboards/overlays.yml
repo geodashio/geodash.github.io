@@ -154,12 +154,12 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: zoomToLocation
-      properties:
-        - { name: lat, value: 4.8475 }
-        - { name: lon, value: 31.5953 }
-        - { name: zoom, value: 14 }
+    intents:
+      -  name: zoomToLocation
+        properties:
+          - { name: lat, value: 4.8475 }
+          - { name: lon, value: 31.5953 }
+          - { name: zoom, value: 14 }
     tooltip: { placement: right, content: "Reset Extent" }
     css:
       properties:
@@ -179,10 +179,10 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: toggleFeatureLayer
-      properties:
-        - { name: layer, value: wld_trs_airports_wfp }
+    intents:
+      - name: toggleFeatureLayer
+        properties:
+          - { name: layer, value: wld_trs_airports_wfp }
     tooltip: { placement: right, content: "Toggle Airports Layer" }
     css:
       properties:
@@ -202,10 +202,10 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: toggleFeatureLayer
-      properties:
-        - { name: layer, value: wld_trs_supplyroutes_wfp }
+    intents:
+      - name: toggleFeatureLayer
+        properties:
+          - { name: layer, value: wld_trs_supplyroutes_wfp }
     tooltip: { placement: right, content: "Toggle Supply Routes" }
     css:
       properties:
@@ -237,8 +237,8 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    intent:
-      name: printMap
+    intents:
+      - name: printMap
     tooltip: { placement: left, content: "Print Map" }
     css:
       properties:
