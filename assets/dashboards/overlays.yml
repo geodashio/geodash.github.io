@@ -114,8 +114,10 @@ overlays:
       font:
         family: FontAwesome
         size: 2rem
-    intent:
-      name: zoomIn
+    intents:
+      - name: zoomIn
+        properties:
+          - { name: animate, value: false }
     tooltip: { placement: right, content: "Zoom In" }
     css:
       properties:
@@ -133,8 +135,10 @@ overlays:
       font:
         family: FontAwesome
         size: 2rem
-    intent:
-      name: zoomOut
+    intents:
+      - name: zoomOut
+        properties:
+          - { name: animate, value: false }
     tooltip: { placement: right, content: "Zoom Out" }
     css:
       properties:
