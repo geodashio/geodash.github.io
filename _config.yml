@@ -94,3 +94,7 @@ geodash:
   examples:
     - id: simple
       title: Simple
+    - id: carto
+      title: Cartography
+    - id: popups
+      title: Popups
