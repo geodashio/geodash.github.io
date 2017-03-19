@@ -16,7 +16,7 @@ permalink: none
 #destination: _site
 # Production
 baseurl:
-url: http://geodash.io
+url: https://geodash.io
 destination: _site
 
 # Explicit excludes, including dotfiles to be safe

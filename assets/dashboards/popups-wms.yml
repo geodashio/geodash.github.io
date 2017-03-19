@@ -119,7 +119,7 @@ overlays:
     text:
       content: "Powered by GeoDash"
       font: { style: normal, family: Verdana, size: 1.2rem }
-    link: { url: "http://geodash.io", target: "_blank" }
+    link: { url: "https://geodash.io", target: "_blank" }
     css:
       properties:
         - { name: padding, value: 8px }
@@ -177,7 +177,7 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/popups.yml", target: "_blank" }
+    link: { url: "https://viewer.geodash.io/?main:config=https://geodash.io/assets/dashboards/popups.yml", target: "_blank" }
     tooltip: { placement: left, content: "Popout" }
     css:
       properties:
