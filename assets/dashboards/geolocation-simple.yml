@@ -1,0 +1,85 @@
+---
+{% raw %}
+title: Geolocation / Simple
+view:
+  baselayer: world_blank_light
+  controls: []
+  featurelayers:
+    - current_position
+  latitude: 0
+  longitude: 0
+  maxZoom: 18
+  minZoom: 0
+  zoom: 3
+controls:
+  attribution: false
+  legend: false
+  zoom: false
+renderlayers:
+  - current_position
+  - world_blank_light
+baselayers:
+  - id: world_blank_light
+    type: mapbox
+    title: World Blank Light
+    description: MapBox World Blank Light
+    source:
+      attribution: '&copy; <a href="https://mapbox.com">MapBox</a>'
+      name: "World Blank Light"
+    mapbox:
+      account: "patrickd"
+      style: ["ciur3uqi000ts2jl8m5k4kb8z"]
+      access_token: "pk.eyJ1IjoicGF0cmlja2QiLCJhIjoiY2l1cXh6MzVwMDAweDJvcG81M3R2Z3QzOCJ9.sTduWVXMlsS7IucYPb9Sig"
+featurelayers:
+- carto:
+    styles:
+    - id: default
+      description: Default style
+      symbolizers:
+      - description: Avatars Symbolizer
+        id: avatar
+        static:
+          properties:
+            radius: 0
+            textAlign: center
+            textBaseline: middle
+            textCode: f183
+            textColor: '#FF8C00'
+            textFont: normal 32px FontAwesome
+        title: Avatar Symbolizer
+        type: point
+      - description: Buffer Symbolizer
+        id: buffer
+        static:
+          properties:
+            fillColor: '#FF8C00'
+            fillOpacity: 0.4
+            strokeColor: '#444444'
+            strokeWidth: 1.0
+        title: Buffer Symbolizer
+        transform:
+          operations:
+          - name: buffer
+            properties:
+            - name: distance
+              value: $accuracy
+        type: polygon
+      title: Default style
+  geojson: {}
+  id: current_position
+  popup:
+    panes:
+    - fields:
+      - label: Location (Lat, Lon)
+        value: '{{ feature.geometry.lat | formatFloat : 4 }} , {{ feature.geometry.lon | formatFloat : 4 }}'
+      - label: Accuracy (meters)
+        value: '{{ feature.attributes.accuracy }}'
+      id: Overview
+      tab:
+        label: Overview
+    title: Current Location
+  title: Current Position
+  type: geojson
+overlays: []
+navbars: []
+{% endraw %}

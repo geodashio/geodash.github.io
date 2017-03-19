@@ -1,0 +1,189 @@
+---
+{% raw %}
+title: Popups with WMS/WFS Layer
+view:
+  baselayer: osm
+  featurelayers:
+    - wld_poi_warehouses_wfp
+    - wld_trs_supplyroutes_wfp
+  latitude: 18.7360
+  longitude: -72.4178
+  maxZoom: 18
+  minZoom: 0
+  zoom: 7
+  controls: []
+controls:
+  attribution: false
+  legend: false
+  zoom: false
+renderlayers:
+  - wld_poi_warehouses_wfp
+  - wld_trs_supplyroutes_wfp
+  - osm
+baselayers:
+  - id: osm
+    title: OpenStreetMap
+    description: OpenStreetMap Basemap, Standard Style
+    source:
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      name: OpenStreetMap
+      tile:
+        url: https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png
+      type: tiles
+featurelayers:
+  - id: wld_poi_warehouses_wfp
+    type: WMS
+    title: "Global WFP Warehouses"
+    description: "This layer contains locations and additional information of WFP warehouses worldwide."
+    source:
+      name: "WFP"
+      attribution: "WFP GeoNode"
+      site: "WFP GeoNode"
+    wms:
+      version: "1.1.1"
+      layers: ["geonode:wld_poi_warehouses_wfp"]
+      styles: []
+      format: 'image/png'
+      transparent: true
+      buffer: 256
+      url: "http://geonode.wfp.org/cors/geoserver/geonode/wms"
+    wfs:
+      version: "1.0.0"  # Needs to 1.0.0 or returns bad results for some reason.
+      url: "http://geonode.wfp.org/cors/geoserver/wfs"
+      geometry: shape
+    popup:
+      title: "WFP Warehouse: {{ feature.attributes.whlocation }}"
+      panes:
+        - id: popup_overview
+          tab: {label: Overview }
+          fields:
+            - { "attribute": whlocation, "label": "Location", "value": "{{ feature.attributes.whlocation }}" }
+            - { "attribute": owner, "label": "Owner", "value": "{{ feature.attributes.ownerorg }}" }
+            - { "attribute": status, "label": "Status", "value": "{{ feature.attributes.status }}" }
+            - { "attribute": locprecision, "label": "Location Precision", "value": "{{ feature.attributes.locprecision }}" }
+        - id: "popup_links"
+          tab: { label: "Links" }
+          fields:
+            - { type: link, label: "WFP GeoNode", value: Home, url: "http://geonode.wfp.org/" }
+            - { type: link, label: "WFP GeoNode", value: "{{ layer.title }}", url: "http://geonode.wfp.org/layers/geonode:wld_poi_warehouses_wfp" }
+            - type: link
+              label: "Logistics Cluster:"
+              value: "Hurricane Matthew"
+              url: "http://www.logcluster.org/sector/hurrimat16"
+            - value: "{{ feature.geometry.lat | number : 4 }}, {{ feature.geometry.lon | number : 4 }}"
+              type: link
+              label: "OpenStreetMap"
+              url: "https://www.openstreetmap.org/#map=15/{{ feature.geometry.lat }}/{{ feature.geometry.lon }}"
+  - id: wld_trs_supplyroutes_wfp
+    type: WMS
+    title: "Global Supply Routes"
+    description: "Global supply routes for Transportation of Food and Non Food Items - Roads, Railways, Waterway, Airways.\n\nThis layer is built by linking origin/destination locations using the most direct route on main roads. In reality, the supply routes can divert from the ones displayed here depending on many local factors. The routes shown in this dataset are only indicative and have to be used as such."
+    source:
+      name: "WFP"
+      attribution: "WFP GeoNode"
+      site: "WFP GeoNode"
+    wms:
+      version: "1.1.1"
+      layers: ["geonode:wld_trs_supplyroutes_wfp"]
+      styles: []
+      format: 'image/png'
+      transparent: true
+      buffer: 256
+      url: "http://geonode.wfp.org/cors/geoserver/geonode/wms"
+    wfs:
+      version: "1.0.0"  # Needs to 1.0.0 or returns bad results for some reason.
+      url: "http://geonode.wfp.org/cors/geoserver/wfs"
+      geometry: shape
+overlays:
+  - id: attribution
+    type: text
+    position:
+      bottom: 8px
+      right: 8px
+    text:
+      content: "&copy; [OpenStreetMap](http://www.openstreetmap.org/copyright)"
+      font: { style: normal, family: Verdana, size: 1.2rem }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0, 0, 0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 1.2rem }
+        - { name: color, value: white }
+  - id: powered_by_geodash
+    type: text
+    position:
+      bottom: 8px
+      left: 8px
+    text:
+      content: "Powered by GeoDash"
+      font: { style: normal, family: Verdana, size: 1.2rem }
+    link: { url: "http://geodash.io", target: "_blank" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0, 0, 0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 1.2rem }
+        - { name: color, value: white }
+  - id: zoom_in
+    type: text
+    title: "Zoom In"
+    position: { top: 8px, left: 8px, bottom: auto, right: auto }
+    text:
+      content: ""
+      font:
+        family: FontAwesome
+        size: 2rem
+    intents:
+      - name: zoomIn
+        properties:
+          - { name: animate, value: false }
+    tooltip: { placement: right, content: "Zoom In" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: "8px 8px 0px 0px" }
+        - { name: line-height, value: 2rem }
+  - id: zoom_out
+    type: text
+    title: "Zoom Out"
+    position: { top: calc(1rem + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
+    text:
+      content: ""
+      font:
+        family: FontAwesome
+        size: 2rem
+    intents:
+      - name: zoomOut
+        properties:
+          - { name: animate, value: false }
+    tooltip: { placement: right, content: "Zoom Out" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: "0px 0px 8px 8px" }
+        - { name: line-height, value: 2rem }
+  - id: popout
+    type: text
+    title: "Popout"
+    position: { top: 1rem, left: auto, bottom: auto, right: 1rem }
+    text:
+      content: ""
+      font: { family: FontAwesome, size: 2rem }
+    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/popups.yml", target: "_blank" }
+    tooltip: { placement: left, content: "Popout" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 2rem }
+{% endraw %}

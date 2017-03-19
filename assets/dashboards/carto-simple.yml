@@ -1,13 +1,12 @@
 ---
 {% raw %}
-title: Popups Example
+title: Carto Simple
 view:
   baselayer: osm
   featurelayers:
-    - wld_poi_warehouses_wfp
-    - wld_trs_supplyroutes_wfp
-  latitude: 18.7360
-  longitude: -72.4178
+    - Syria_CulturalSites_2013May22_HIU_USDoS
+  latitude: 35.275
+  longitude: 38.598
   maxZoom: 18
   minZoom: 0
   zoom: 7
@@ -17,8 +16,7 @@ controls:
   legend: false
   zoom: false
 renderlayers:
-  - wld_poi_warehouses_wfp
-  - wld_trs_supplyroutes_wfp
+  - Syria_CulturalSites_2013May22_HIU_USDoS
   - osm
 baselayers:
   - id: osm
@@ -31,69 +29,32 @@ baselayers:
         url: https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png
       type: tiles
 featurelayers:
-  - id: wld_poi_warehouses_wfp
-    type: WMS
-    title: "Global WFP Warehouses"
-    description: "This layer contains locations and additional information of WFP warehouses worldwide."
+  - id: Syria_CulturalSites_2013May22_HIU_USDoS
+    type: GeoJSON
+    title: "Syria Cultural Sites"
+    description: "The Syria Cultural Sites dataset contains geographic location (point geometry), name, type, and area name of over 1000 cultural heritage sites and museums in Syria compiled by the Cultural Heritage Center, Bureau of Educational and Cultural Affairs, U.S. Department of State (http://eca.state.gov/cultural-heritage-center) as of Spring 2013. The sites are categorized by type, which include but not limited to, archaelogical sites, roman ruins, mosques, schools, churches, cemetaries, and towns. The data contained herein is entirely unclassified."
     source:
-      name: "WFP"
-      attribution: "WFP GeoNode"
-      site: "WFP GeoNode"
-    wms:
-      version: "1.1.1"
-      layers: ["geonode:wld_poi_warehouses_wfp"]
-      styles: []
-      format: 'image/png'
-      transparent: true
-      buffer: 256
-      url: "http://geonode.wfp.org/cors/geoserver/geonode/wms"
-    wfs:
-      version: "1.0.0"  # Needs to 1.0.0 or returns bad results for some reason.
-      url: "http://geonode.wfp.org/cors/geoserver/wfs"
-      geometry: shape
-    popup:
-      title: "WFP Warehouse: {{ feature.attributes.whlocation }}"
-      panes:
-        - id: popup_overview
-          tab: {label: Overview }
-          fields:
-            - { "attribute": whlocation, "label": "Location", "value": "{{ feature.attributes.whlocation }}" }
-            - { "attribute": owner, "label": "Owner", "value": "{{ feature.attributes.ownerorg }}" }
-            - { "attribute": status, "label": "Status", "value": "{{ feature.attributes.status }}" }
-            - { "attribute": locprecision, "label": "Location Precision", "value": "{{ feature.attributes.locprecision }}" }
-        - id: "popup_links"
-          tab: { label: "Links" }
-          fields:
-            - { type: link, label: "WFP GeoNode", value: Home, url: "http://geonode.wfp.org/" }
-            - { type: link, label: "WFP GeoNode", value: "{{ layer.title }}", url: "http://geonode.wfp.org/layers/geonode:wld_poi_warehouses_wfp" }
-            - type: link
-              label: "Logistics Cluster:"
-              value: "Hurricane Matthew"
-              url: "http://www.logcluster.org/sector/hurrimat16"
-            - value: "{{ feature.geometry.lat | number : 4 }}, {{ feature.geometry.lng | number : 4 }}"
-              type: link
-              label: "OpenStreetMap"
-              url: "https://www.openstreetmap.org/#map=15/{{ feature.geometry.lat }}/{{ feature.geometry.lng }}"
-  - id: wld_trs_supplyroutes_wfp
-    type: WMS
-    title: "Global Supply Routes"
-    description: "Global supply routes for Transportation of Food and Non Food Items - Roads, Railways, Waterway, Airways.\n\nThis layer is built by linking origin/destination locations using the most direct route on main roads. In reality, the supply routes can divert from the ones displayed here depending on many local factors. The routes shown in this dataset are only indicative and have to be used as such."
-    source:
-      name: "WFP"
-      attribution: "WFP GeoNode"
-      site: "WFP GeoNode"
-    wms:
-      version: "1.1.1"
-      layers: ["geonode:wld_trs_supplyroutes_wfp"]
-      styles: []
-      format: 'image/png'
-      transparent: true
-      buffer: 256
-      url: "http://geonode.wfp.org/cors/geoserver/geonode/wms"
-    wfs:
-      version: "1.0.0"  # Needs to 1.0.0 or returns bad results for some reason.
-      url: "http://geonode.wfp.org/cors/geoserver/wfs"
-      geometry: shape
+      name: "U.S. Department of State"
+      attribution: "State GeoNode"
+      site: "State GeoNode"
+    geojson:
+      url: "http://geonode.state.gov/cors/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature"
+    carto:
+      styles:
+        - id: default
+          title: Default Style
+          description: Default Style
+          symbolizers:
+            - id: default
+              title: Default Symbolizer
+              description: Default Symbolizer
+              type: point
+              static:
+                properties:
+                  fillColor: "#AA0000"
+                  fillOpacity: 0.6
+                  strokeWidth: 1.0
+                  strokeColor: "#330000"
 overlays:
   - id: attribution
     type: text
@@ -152,7 +113,7 @@ overlays:
   - id: zoom_out
     type: text
     title: "Zoom Out"
-    position: { top: calc(1rem + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
+    position: { top: calc(8px + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
     text:
       content: ""
       font:
@@ -177,7 +138,7 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/popups.yml", target: "_blank" }
+    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/carto.yml", target: "_blank" }
     tooltip: { placement: left, content: "Popout" }
     css:
       properties:

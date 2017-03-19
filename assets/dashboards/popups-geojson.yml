@@ -1,0 +1,152 @@
+---
+{% raw %}
+title: Popups with GeoJSON Layer
+view:
+  baselayer: world_blank_light
+  featurelayers:
+    - wld_trs_airports_wfp
+  latitude: 35.275
+  longitude: 38.598
+  maxZoom: 18
+  minZoom: 0
+  zoom: 7
+  controls: []
+controls:
+  attribution: false
+  legend: false
+  zoom: false
+renderlayers:
+  - wld_trs_airports_wfp
+  - world_blank_light
+baselayers:
+  - id: world_blank_light
+    type: mapbox
+    title: World Blank Light
+    description: MapBox World Blank Light
+    source:
+      attribution: '&copy; <a href="https://mapbox.com">MapBox</a>'
+      name: "World Blank Light"
+    mapbox:
+      account: "patrickd"
+      style: ["ciur3uqi000ts2jl8m5k4kb8z"]
+      access_token: "pk.eyJ1IjoicGF0cmlja2QiLCJhIjoiY2l1cXh6MzVwMDAweDJvcG81M3R2Z3QzOCJ9.sTduWVXMlsS7IucYPb9Sig"
+featurelayers:
+  - id: wld_trs_airports_wfp
+    type: GeoJSON
+    title: "Global Airports"
+    description: "This layer contains airports locations. This dataset brings together various public sources such as OpenStreetMap or ourairports.com with WFP logistics information. It is updated regularly with inputs from WFP aviation unit but also from many partners through the Logistics Cluster and the Logistics Capacity Assessment (LCA: dlca.logcluster.org). The information is compiled at a global level by the Emergency and Preparedness Geospatial Information Unit at the World Food Programme Headquarters in Rome, Italy.  This dataset is at a global scale and is updated country by country. The last update date can be retrieved from the data of the country of interest.Feel free to contribute to this dataset by contacting hq.gis@wfp.org."
+    source:
+      name: "World Food Programme"
+      attribution: "World Food Programme"
+      site: "WFP GeoNode"
+    geojson:
+      url: "http://geonode.wfp.org/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3Awld_trs_airports_wfp&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature&CQL_FILTER=(iso3=%27SSD%27)"
+    carto:
+      styles:
+        - id: marker
+          type: point
+          title: Airport Marker
+          description: Airport Marker
+          static:
+            properties:
+              radius: 0
+              textAlign: center
+              textBaseline: middle
+              textCode: f072
+              textColor: '#FF8C00'
+              textFont: normal 32px FontAwesome
+    popup:
+      title: "Airport: {{ feature.attributes.namelong }}"
+overlays:
+  - id: attribution
+    type: text
+    position:
+      bottom: 8px
+      right: 8px
+    text:
+      content: "&copy; [OpenStreetMap](http://www.openstreetmap.org/copyright)"
+      font: { style: normal, family: Verdana, size: 1.2rem }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0, 0, 0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 1.2rem }
+        - { name: color, value: white }
+  - id: powered_by_geodash
+    type: text
+    position:
+      bottom: 8px
+      left: 8px
+    text:
+      content: "Powered by GeoDash"
+      font: { style: normal, family: Verdana, size: 1.2rem }
+    link: { url: "http://geodash.io", target: "_blank" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0, 0, 0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 1.2rem }
+        - { name: color, value: white }
+  - id: zoom_in
+    type: text
+    title: "Zoom In"
+    position: { top: 8px, left: 8px, bottom: auto, right: auto }
+    text:
+      content: ""
+      font:
+        family: FontAwesome
+        size: 2rem
+    intents:
+      - name: zoomIn
+        properties:
+          - { name: animate, value: false }
+    tooltip: { placement: right, content: "Zoom In" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: "8px 8px 0px 0px" }
+        - { name: line-height, value: 2rem }
+  - id: zoom_out
+    type: text
+    title: "Zoom Out"
+    position: { top: calc(8px + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
+    text:
+      content: ""
+      font:
+        family: FontAwesome
+        size: 2rem
+    intents:
+      - name: zoomOut
+        properties:
+          - { name: animate, value: false }
+    tooltip: { placement: right, content: "Zoom Out" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: "0px 0px 8px 8px" }
+        - { name: line-height, value: 2rem }
+  - id: popout
+    type: text
+    title: "Popout"
+    position: { top: 1rem, left: auto, bottom: auto, right: 1rem }
+    text:
+      content: ""
+      font: { family: FontAwesome, size: 2rem }
+    link: { url: "http://viewer.geodash.io/?main:config=http://geodash.io/assets/dashboards/carto.yml", target: "_blank" }
+    tooltip: { placement: left, content: "Popout" }
+    css:
+      properties:
+        - { name: padding, value: 8px }
+        - { name: background, value: "rgba(0,0,0, 0.4)" }
+        - { name: border, value: "2px solid #0374e6" }
+        - { name: border-radius, value: 8px }
+        - { name: line-height, value: 2rem }
+{% endraw %}

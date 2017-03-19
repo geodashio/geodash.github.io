@@ -1,10 +1,10 @@
 ---
 {% raw %}
-title: Carto Example
+title: Carto / Symbolizer Transform Operations
 view:
-  baselayer: osm
+  baselayer: world_blank_light
   featurelayers:
-    - Syria_CulturalSites_2013May22_HIU_USDoS
+    - wld_trs_airports_wfp
   latitude: 35.275
   longitude: 38.598
   maxZoom: 18
@@ -16,45 +16,60 @@ controls:
   legend: false
   zoom: false
 renderlayers:
-  - Syria_CulturalSites_2013May22_HIU_USDoS
-  - osm
+  - wld_trs_airports_wfp
+  - world_blank_light
 baselayers:
-  - id: osm
-    title: OpenStreetMap
-    description: OpenStreetMap Basemap, Standard Style
+  - id: world_blank_light
+    type: mapbox
+    title: World Blank Light
+    description: MapBox World Blank Light
     source:
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      name: OpenStreetMap
-      tile:
-        url: https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png
-      type: tiles
+      attribution: '&copy; <a href="https://mapbox.com">MapBox</a>'
+      name: "World Blank Light"
+    mapbox:
+      account: "patrickd"
+      style: ["ciur3uqi000ts2jl8m5k4kb8z"]
+      access_token: "pk.eyJ1IjoicGF0cmlja2QiLCJhIjoiY2l1cXh6MzVwMDAweDJvcG81M3R2Z3QzOCJ9.sTduWVXMlsS7IucYPb9Sig"
 featurelayers:
-  - id: Syria_CulturalSites_2013May22_HIU_USDoS
+  - id: wld_trs_airports_wfp
     type: GeoJSON
-    title: "Syria Cultural Sites"
-    description: "The Syria Cultural Sites dataset contains geographic location (point geometry), name, type, and area name of over 1000 cultural heritage sites and museums in Syria compiled by the Cultural Heritage Center, Bureau of Educational and Cultural Affairs, U.S. Department of State (http://eca.state.gov/cultural-heritage-center) as of Spring 2013. The sites are categorized by type, which include but not limited to, archaelogical sites, roman ruins, mosques, schools, churches, cemetaries, and towns. The data contained herein is entirely unclassified."
+    title: "Global Airports"
+    description: "This layer contains airports locations. This dataset brings together various public sources such as OpenStreetMap or ourairports.com with WFP logistics information. It is updated regularly with inputs from WFP aviation unit but also from many partners through the Logistics Cluster and the Logistics Capacity Assessment (LCA: dlca.logcluster.org). The information is compiled at a global level by the Emergency and Preparedness Geospatial Information Unit at the World Food Programme Headquarters in Rome, Italy.  This dataset is at a global scale and is updated country by country. The last update date can be retrieved from the data of the country of interest.Feel free to contribute to this dataset by contacting hq.gis@wfp.org."
     source:
-      name: "U.S. Department of State"
-      attribution: "State GeoNode"
-      site: "State GeoNode"
+      name: "World Food Programme"
+      attribution: "World Food Programme"
+      site: "WFP GeoNode"
     geojson:
-      url: "http://geonode.state.gov/cors/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3ASyria_CulturalSites_2013May22_HIU_USDoS&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature"
+      url: "http://geonode.wfp.org/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3Awld_trs_airports_wfp&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature&CQL_FILTER=(iso3=%27SSD%27)"
     carto:
       styles:
-        - id: default
-          title: Default Style
-          description: Default Style
-          symbolizers:
-            - id: default
-              title: Default Symbolizer
-              description: Default Symbolizer
-              type: point
-              static:
+        - id: marker
+          type: point
+          title: Airport Marker
+          description: Airport Marker
+          static:
+            properties:
+              radius: 0
+              textAlign: center
+              textBaseline: middle
+              textCode: f072
+              textColor: '#FF8C00'
+              textFont: normal 32px FontAwesome
+        - id: buffer
+          title: Buffer Symbolizer
+          description: Buffer Symbolizer
+          static:
+            properties:
+              fillColor: '#FF8C00'
+              fillOpacity: 0.4
+              strokeColor: '#444444'
+              strokeWidth: 1.0
+          transform:
+            operations:
+              - name: buffer
                 properties:
-                  fillColor: "#AA0000"
-                  fillOpacity: 0.6
-                  strokeWidth: 1.0
-                  strokeColor: "#330000"
+                - name: distance
+                  value: "1000"
 overlays:
   - id: attribution
     type: text
@@ -113,7 +128,7 @@ overlays:
   - id: zoom_out
     type: text
     title: "Zoom Out"
-    position: { top: calc(1rem + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
+    position: { top: calc(8px + 10px + 2rem + 10px), left: 8px, bottom: auto, right: auto }
     text:
       content: ""
       font:
