@@ -15,7 +15,7 @@ layout: base
 						<div>
 							<h3 id="example-{{ g.id | slugify }}-{{ x.name | slugify }}">{{ x.name }}</h3>
 							{{ x.content }}
-              {% if page.https != "false" and page.https != false %}
+              {% if x.https != "false" and x.https != false %}
               <a target="_blank" href="https://geodash.io{{ x.url }}">View</a>
               {% else %}
               <a target="_blank" href="https://geodash.io{{ x.url }}">View</a>
