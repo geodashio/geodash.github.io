@@ -23,7 +23,7 @@ layout: base
               {{ content }}
               <p>Dashboard: <a href="{{ site.url }}{{ page.dashboard }}" target="_blank">{{ site.url }}{{ page.dashboard }}</a></p>
               <div style="width:100%;height:400px;">
-                {% if https != "false "%}
+                {% if page.https != "false "%}
                 <iframe id="dashboard" src="https://viewer.geodash.io/?main:config=https://geodash.io{{ page.dashboard }}" style="width: 100%; height: 100%;"></iframe>
                 {% else %}
                 <iframe id="dashboard" src="https://viewer.geodash.io/?main:config=http://geodash.io{{ page.dashboard }}" style="width: 100%; height: 100%;"></iframe>
