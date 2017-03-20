@@ -6,6 +6,7 @@ tags:
   - popups
 group: popups
 dashboard: /assets/dashboards/popups-wms.yml
+https: false
 ---
 
 Example of feature layer popups for WMS/WFS layers

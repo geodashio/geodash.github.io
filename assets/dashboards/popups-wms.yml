@@ -177,7 +177,7 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    link: { url: "https://viewer.geodash.io/?main:config=https://geodash.io/assets/dashboards/popups.yml", target: "_blank" }
+    link: { url: "https://viewer.geodash.io/?main:config=https://geodash.io/assets/dashboards/popups-wms.yml", target: "_blank" }
     tooltip: { placement: left, content: "Popout" }
     css:
       properties:
