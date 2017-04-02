@@ -13,7 +13,11 @@ layout: base
 			  <div class="3u speaker">
 					<section class="box">
 						<div>
-							<h3 id="example-{{ g.id | slugify }}-{{ x.name | slugify }}">{{ x.name }}</h3>
+              {% if x.https != "false" and x.https != false %}
+							<a target="_blank" href="https://geodash.io{{ x.url }}"><h3 id="example-{{ g.id | slugify }}-{{ x.name | slugify }}">{{ x.name }}</h3></a>
+              {% else %}
+              <a target="_blank" href="http://geodash.io{{ x.url }}"><h3 id="example-{{ g.id | slugify }}-{{ x.name | slugify }}">{{ x.name }}</h3></a>
+              {% endif %}
 							{{ x.content }}
               {% if x.https != "false" and x.https != false %}
               <a target="_blank" href="https://geodash.io{{ x.url }}">View</a>

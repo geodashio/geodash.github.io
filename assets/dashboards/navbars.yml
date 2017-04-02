@@ -120,7 +120,7 @@ overlays:
         - { name: border-radius, value: 8px }
         - { name: line-height, value: 2rem }
 navbars:
-  - id: days
+  - id: cities
     placement: bottom
     intents:
       - name: stateChanged

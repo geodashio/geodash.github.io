@@ -20,8 +20,8 @@ layout: base
                 </h2>
                 {% endif %}
               </header>
-              {{ content }}
-              <p>Dashboard: <a href="{{ site.url }}{{ page.dashboard }}" target="_blank">{{ site.url }}{{ page.dashboard }}</a></p>
+              {{ page.description }}
+              <h4>Live</h4>
               <div style="width:100%;height:400px;">
                 {% if page.https != "false" and page.https != false %}
                 <iframe id="dashboard" src="https://viewer.geodash.io/?main:config=https://geodash.io{{ page.dashboard }}" style="width: 100%; height: 100%;"></iframe>
@@ -29,6 +29,12 @@ layout: base
                 <iframe id="dashboard" src="http://viewer.geodash.io/?main:config=http://geodash.io{{ page.dashboard }}" style="width: 100%; height: 100%;"></iframe>
                 {% endif %}
               </div>
+              <h4>Snippet</h4>
+              <pre style="width:100%; height: 260px;">{{ content }}</pre>
+              <h4>Schema</h4>
+              <a href="{{ site.url }}/schema#{{ page.schema }}" target="_blank">{{ site.url }}/schema#{{ page.schema }}</a>
+              <h4>Full Dashboard Configuration</h4>
+              <a href="{{ site.url }}{{ page.dashboard }}" target="_blank">{{ site.url }}{{ page.dashboard }}</a>
             </div>
 					</article>
 				</div>
