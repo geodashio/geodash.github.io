@@ -138,7 +138,7 @@ overlays:
     text:
       content: ""
       font: { family: FontAwesome, size: 2rem }
-    link: { url: "https://viewer.geodash.io/?main:config=https://geodash.io/assets/dashboards/carto.yml", target: "_blank" }
+    link: { url: "https://viewer.geodash.io/?main:config=https://geodash.io/assets/dashboards/carto-simple.yml", target: "_blank" }
     tooltip: { placement: left, content: "Popout" }
     css:
       properties:
