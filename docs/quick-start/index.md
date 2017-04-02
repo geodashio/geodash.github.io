@@ -142,7 +142,7 @@ Update the link after **?main:config=** as needed.  You should now see a layer o
 
 We'll now add a simple popup to our WFP Warehouses layer.  You can read more about popups in the schema at [http://geodash.io/schema/#featurelayerspopup](http://geodash.io/schema/#featurelayerspopup).
 
-Add a **popup** block under the feature layer.  In this block you can set the popup title and fields.  You can specify whatever fields are most useful.  Additionally, these fields can be short template snippets.  For example `{{ feature.geometry.lon | number : 4 }}` to round the longitude to only 4 decimal places.  You can use all the filters at [https://github.com/geodashio/geodash-plugin-filters](https://github.com/geodashio/geodash-plugin-filters) in your popup templates.  In addition to showing feature attribute information, you can also show links to external resources, such as the relevant page on [WFP GeoNode](http://geonode.wfp.org).
+Add a **popup** block under the feature layer.  In this block you can set the popup title and fields.  You can specify whatever fields are most useful.  Additionally, these fields can be short template snippets.  For example {% raw %}`{{ feature.geometry.lon | number : 4 }}`{% endraw %} to round the longitude to only 4 decimal places.  You can use all the built-in Angular filters and the custom filters at [https://github.com/geodashio/geodash-plugin-filters](https://github.com/geodashio/geodash-plugin-filters) in your popup templates.  In addition to showing feature attribute information, you can also show links to external resources, such as the relevant page on [WFP GeoNode](http://geonode.wfp.org).
 
 ```
 ---
