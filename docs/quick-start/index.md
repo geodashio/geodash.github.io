@@ -68,7 +68,7 @@ To render the dashboard, simply append a link to the YAML configuration file aft
 
 **Live**
 
-[Step 1 Live](https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_1.yml)
+[Step 1 Live](http://viewer.geodash.io/?main:config=https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_1.yml)
 
 ### Step 2: Adding Feature Layers
 
