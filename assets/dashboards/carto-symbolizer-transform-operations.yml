@@ -43,33 +43,37 @@ featurelayers:
       url: "http://geonode.wfp.org/cors/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3Awld_trs_airports_wfp&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature&CQL_FILTER=(iso3=%27SSD%27)"
     carto:
       styles:
-        - id: marker
-          type: point
-          title: Airport Marker
-          description: Airport Marker
-          static:
-            properties:
-              radius: 0
-              textAlign: center
-              textBaseline: middle
-              textCode: f072
-              textColor: '#FF8C00'
-              textFont: normal 32px FontAwesome
-        - id: buffer
-          title: Buffer Symbolizer
-          description: Buffer Symbolizer
-          static:
-            properties:
-              fillColor: '#FF8C00'
-              fillOpacity: 0.4
-              strokeColor: '#444444'
-              strokeWidth: 1.0
-          transform:
-            operations:
-              - name: buffer
+        - id: default
+          title: Default Style
+          description: Default Style
+          symbolizers:
+            - id: marker
+              type: point
+              title: Airport Marker
+              description: Airport Marker
+              static:
                 properties:
-                - name: distance
-                  value: "1000"
+                  radius: 0
+                  textAlign: center
+                  textBaseline: middle
+                  textCode: f072
+                  textColor: '#FF8C00'
+                  textFont: normal 32px FontAwesome
+            - id: buffer
+              title: Buffer Symbolizer
+              description: Buffer Symbolizer
+              static:
+                properties:
+                  fillColor: '#FF8C00'
+                  fillOpacity: 0.4
+                  strokeColor: '#444444'
+                  strokeWidth: 1.0
+              transform:
+                operations:
+                  - name: buffer
+                    properties:
+                    - name: distance
+                      value: "1000"
 overlays:
   - id: attribution
     type: text
