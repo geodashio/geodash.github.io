@@ -10,6 +10,7 @@ dashboard: /assets/dashboards/popups-geojson.yml
 https: false
 schema: featurelayerspopup
 ---
-
+{% raw %}
 popup:
   title: "Airport: {{ feature.attributes.namelong }}"
+{% endraw %}

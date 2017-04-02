@@ -10,7 +10,7 @@ dashboard: /assets/dashboards/popups-wms.yml
 https: false
 schema: featurelayerspopup
 ---
-
+{% raw %}
 popup:
   title: "WFP Warehouse: {{ feature.attributes.whlocation }}"
   panes:
@@ -34,3 +34,4 @@ popup:
           type: link
           label: "OpenStreetMap"
           url: "https://www.openstreetmap.org/#map=15/{{ feature.geometry.lat }}/{{ feature.geometry.lon }}"
+{% endraw %}

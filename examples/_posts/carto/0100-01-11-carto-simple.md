@@ -11,7 +11,7 @@ dashboard: /assets/dashboards/carto-simple.yml
 https: false
 schema: featurelayerscarto
 ---
-
+{% raw %}
 carto:
   styles:
     - id: default
@@ -28,3 +28,4 @@ carto:
               fillOpacity: 0.6
               strokeWidth: 1.0
               strokeColor: "#330000"
+{% endraw %}

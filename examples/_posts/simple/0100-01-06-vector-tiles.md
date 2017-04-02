@@ -10,7 +10,7 @@ group: simple
 dashboard: /assets/dashboards/vector-tiles.yml
 schema: featurelayersmapzen
 ---
-
+{% raw %}
 featurelayers:
   - id: roads
     type: mapzen
@@ -23,3 +23,4 @@ featurelayers:
       layers: ["roads"]
       format: "mvt"
       api_key: "mapzen-KthQho3"
+{% endraw %}

@@ -11,7 +11,7 @@ dashboard: /assets/dashboards/carto-symbolizer-transform-operations.yml
 https: false
 schema: featurelayerscartostylessymbolizerstransform
 ---
-
+{% raw %}
 - id: buffer
   type: polygon
   title: Buffer Symbolizer
@@ -28,3 +28,4 @@ schema: featurelayerscartostylessymbolizerstransform
         properties:
         - name: distance
           value: 1000
+{% endraw %}
