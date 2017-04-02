@@ -40,7 +40,7 @@ featurelayers:
       attribution: "World Food Programme"
       site: "WFP GeoNode"
     geojson:
-      url: "http://geonode.wfp.org/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3Awld_trs_airports_wfp&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature&CQL_FILTER=(iso3=%27SSD%27)"
+      url: "http://geonode.wfp.org/cors/geoserver/wfs?srsName=EPSG%3A4326&typename=geonode%3Awld_trs_airports_wfp&outputFormat=json&version=1.0.0&service=WFS&request=GetFeature&CQL_FILTER=(iso3=%27SSD%27)"
     carto:
       styles:
         - id: marker
