@@ -135,7 +135,7 @@ Update the link after **?main:config=** as needed.  You should now see a layer o
 
 **Live**
 
-[Step 2 Live](https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_2.yml)
+[Step 2 Live](http://viewer.geodash.io/?main:config=https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_2.yml)
 
 
 ### Step 3: Adding Popups
@@ -222,7 +222,7 @@ Update the link after **?main:config=** as needed.  You should now be able to cl
 
 **Live**
 
-[Step 3 Live](https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_3.yml)
+[Step 3 Live](http://viewer.geodash.io/?main:config=https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_3.yml)
 
 
 ### Step 4: Adding Navbars
@@ -357,7 +357,7 @@ navbars:
 
 **Live**
 
-[Step 4 Live](https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_4.yml)
+[Step 4 Live](http://viewer.geodash.io/?main:config=https://gist.githubusercontent.com/pjdufour/7f66ad8889e912ec124527faa9d173a1/raw/e6a495fff1ee10f271bbc2ee7351712e6d90ffc4/geodash_quick_start_step_4.yml)
 
 ### Step 5: Adding Overlays
 
